@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <style>
+      html,
+      body {
+         margin: 0;
+         padding: 0;
+      }
+
+      main {
+         background-color: black;
+         background-image: url("./wallpaper.jpg");
+         background-size: cover;
+         background-position: center;
+         width: 100dvw;
+         height: 100dvh;
+         display: grid;
+         place-items: center;
+      }
+
+      button {
+         cursor: pointer;
+         display: block;
+         margin: 0 auto;
+         border-radius: 10px;
+         background-color: darkred;
+         color: white;
+         font-size: min(1.5rem, 10vw);
+         padding: 10px 20px;
+         border: none;
+         text-transform: uppercase;
+         box-shadow: 0 0 10px 5px #000;
+
+         @media (max-width: 768px) {
+            main {
+               background-image: url("./wallpaper.jpg");
+               background-size: contain;
+               background-repeat: no-repeat;
+               background-position: center;
+               transform: rotate(-180deg);
+            }
+         }
+      }
+
+      button:hover {
+         background-color: rgb(77, 0, 0);
+      }
+
+      img {
+         display: none;
+         width: 100dvw;
+         height: 100dvh;
+      }
+   </style>
+   <body>
+      <main>
+         <button>Não clique neste botão...</button>
+         <img src="./bru.png" alt="" />
+      </main>
+   </body>
+   <script>
+      const button = document.querySelector("button");
+      const img = document.querySelector("img");
+      const audio = new Audio("./segredo.wav");
+      audio.loop = true;
+      button.addEventListener("click", () => {
+         button.style.display = "none";
+         img.style.display = "block";
+         audio.play();
+      });
+   </script>
+</html>
